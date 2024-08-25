@@ -1,0 +1,41 @@
+<odoo>
+    <record id="view_sales_kpi_form" model="ir.ui.view">
+        <field name="name">sales.kpi.form</field>
+        <field name="model">sales.kpi</field>
+        <field name="arch" type="xml">
+            <form string="Sales KPI">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="kpi_date"/>
+                        <field name="target_revenue"/>
+                        <field name="actual_revenue"/>
+                        <field name="conversion_rate" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_sales_kpi_tree" model="ir.ui.view">
+        <field name="name">sales.kpi.tree</field>
+        <field name="model">sales.kpi</field>
+        <field name="arch" type="xml">
+            <tree string="Sales KPI">
+                <field name="name"/>
+                <field name="kpi_date"/>
+                <field name="target_revenue"/>
+                <field name="actual_revenue"/>
+                <field name="conversion_rate"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_sales_kpi" model="ir.actions.act_window">
+        <field name="name">Sales KPI</field>
+        <field name="res_model">sales.kpi</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_sales_kpi" name="Sales KPI" parent="crm.menu_crm_root" action="action_sales_kpi"/>
+</odoo>
