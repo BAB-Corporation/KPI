@@ -1,4 +1,5 @@
 <odoo>
+    <!-- Sales KPI Form View -->
     <record id="view_sales_kpi_form" model="ir.ui.view">
         <field name="name">sales.kpi.form</field>
         <field name="model">sales.kpi</field>
@@ -7,6 +8,7 @@
                 <sheet>
                     <group>
                         <field name="name"/>
+                        <field name="tag_ids" widget='many2many_tags'/>
                         <field name="kpi_date"/>
                         <field name="target_revenue"/>
                         <field name="actual_revenue"/>
@@ -17,12 +19,14 @@
         </field>
     </record>
 
+    <!-- Sales KPI Tree View -->
     <record id="view_sales_kpi_tree" model="ir.ui.view">
         <field name="name">sales.kpi.tree</field>
         <field name="model">sales.kpi</field>
         <field name="arch" type="xml">
             <tree string="Sales KPI">
                 <field name="name"/>
+                <field name="tag_ids"/>
                 <field name="kpi_date"/>
                 <field name="target_revenue"/>
                 <field name="actual_revenue"/>
@@ -31,11 +35,14 @@
         </field>
     </record>
 
+    <!-- Sales KPI Action -->
     <record id="action_sales_kpi" model="ir.actions.act_window">
         <field name="name">Sales KPI</field>
         <field name="res_model">sales.kpi</field>
         <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_sales_kpi_tree"/>
     </record>
 
+    <!-- Sales KPI Menu Item -->
     <menuitem id="menu_sales_kpi" name="Sales KPI" parent="crm.menu_crm_root" action="action_sales_kpi"/>
 </odoo>

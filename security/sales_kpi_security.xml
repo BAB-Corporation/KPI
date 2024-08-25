@@ -1,0 +1,32 @@
+<odoo>
+    <!-- Security Rules for Sales KPI -->
+    <record id="sales_kpi_group_user" model="res.groups">
+        <field name="name">Sales KPI User</field>
+        <field name="category_id" ref="base.module_category_sales_management"/>
+    </record>
+
+    <record id="sales_kpi_rule_user" model="ir.model.access">
+        <field name="name">sales.kpi access</field>
+        <field name="model_id" ref="model_sales_kpi"/>
+        <field name="group_id" ref="sales_kpi_group_user"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+
+    <record id="sales_tag_group_user" model="res.groups">
+        <field name="name">Sales Tag User</field>
+        <field name="category_id" ref="base.module_category_sales_management"/>
+    </record>
+
+    <record id="sales_tag_rule_user" model="ir.model.access">
+        <field name="name">sales.tag access</field>
+        <field name="model_id" ref="model_sales_tag"/>
+        <field name="group_id" ref="sales_tag_group_user"/>
+        <field name="perm_read" eval="1"/>
+        <field name="perm_write" eval="1"/>
+        <field name="perm_create" eval="1"/>
+        <field name="perm_unlink" eval="1"/>
+    </record>
+</odoo>

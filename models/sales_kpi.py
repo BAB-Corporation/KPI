@@ -12,6 +12,10 @@ class SalesKPI(models.Model):
         'tag_id',                   # Column in the relation table that refers to the related model
         string='Tags'
     )
+    kpi_date = fields.Date('KPI Date')
+    target_revenue = fields.Float('Target Revenue')
+    actual_revenue = fields.Float('Actual Revenue')
+    conversion_rate = fields.Float('Conversion Rate', readonly=True)
 
 class SalesTag(models.Model):
     _name = 'sales.tag'
