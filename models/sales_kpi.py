@@ -5,6 +5,9 @@ class SalesKPI(models.Model):
     _description = 'Sales KPI'
     _inherit = 'crm.lead'
 
+    # Remove the inherited 'tag_ids' field
+    tag_ids = None
+
     # Fields for tracking sales KPIs
     target_revenue = fields.Float(string='Target Revenue')
     actual_revenue = fields.Float(string='Actual Revenue')
@@ -19,15 +22,10 @@ class SalesKPI(models.Model):
             else:
                 record.conversion_rate = 0
 
-    # Optional: Override methods from crm.lead if you need to customize the behavior
     def create(self, vals):
-        # Custom logic before creating a record
         res = super(SalesKPI, self).create(vals)
-        # Custom logic after creating a record
         return res
 
     def write(self, vals):
-        # Custom logic before updating a record
         res = super(SalesKPI, self).write(vals)
-        # Custom logic after updating a record
         return res
