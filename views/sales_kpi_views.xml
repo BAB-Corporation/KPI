@@ -44,5 +44,4 @@
     </record>
 
     <!-- Sales KPI Menu Item -->
-    <menuitem id="menu_sales_kpi" name="Sales KPI" parent="crm.menu_crm_root" action="action_sales_kpi"/>
 </odoo>
