@@ -7,7 +7,7 @@ class SalesKPI(models.Model):
     name = fields.Char('KPI Name')
     tag_ids = fields.Many2many(
         'sales.tag',                # Related model
-        'sales_tag_relation_table', # Unique table name to avoid conflict
+        # 'sales_tag_relation_table', # Unique table name to avoid conflict
         'kpi_id',                   # Column in the relation table that refers to this model
         'tag_id',                   # Column in the relation table that refers to the related model
         string='Tags'

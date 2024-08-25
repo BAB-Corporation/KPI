@@ -8,7 +8,6 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="tag_ids" widget='many2many_tags'/>
                         <field name="kpi_date"/>
                         <field name="target_revenue"/>
                         <field name="actual_revenue"/>
@@ -26,7 +25,6 @@
         <field name="arch" type="xml">
             <tree string="Sales KPI">
                 <field name="name"/>
-                <field name="tag_ids"/>
                 <field name="kpi_date"/>
                 <field name="target_revenue"/>
                 <field name="actual_revenue"/>
@@ -44,5 +42,5 @@
     </record>
 
     <!-- Sales KPI Menu Item -->
-    <menuitem id="menu_sales_kpi" name="Sales KPI" parent="base.menu_sales" action="action_sales_kpi"/>
+    <!-- <menuitem id="menu_sales_kpi" name="Sales KPI" parent="base.menu_sales" action="action_sales_kpi"/> -->
 </odoo>
