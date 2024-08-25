@@ -7,7 +7,6 @@
                 <sheet>
                     <group>
                         <field name="name"/>
-                        <field name="kpi_date"/>
                         <field name="target_revenue"/>
                         <field name="actual_revenue"/>
                         <field name="conversion_rate" readonly="1"/>
@@ -23,7 +22,6 @@
         <field name="arch" type="xml">
             <tree string="Sales KPI">
                 <field name="name"/>
-                <field name="kpi_date"/>
                 <field name="target_revenue"/>
                 <field name="actual_revenue"/>
                 <field name="conversion_rate"/>
