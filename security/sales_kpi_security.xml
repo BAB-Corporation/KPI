@@ -1,32 +1,48 @@
 <odoo>
-    <!-- Security Rules for Sales KPI -->
-    <record id="sales_kpi_group_user" model="res.groups">
-        <field name="name">Sales KPI User</field>
-        <field name="category_id" ref="base.module_category_sales_management"/>
+    <!-- Sales KPI Form View -->
+    <record id="view_sales_kpi_form" model="ir.ui.view">
+        <field name="name">sales.kpi.form</field>
+        <field name="model">sales.kpi</field>
+        <field name="arch" type="xml">
+            <form string="Sales KPI">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="tag_ids" widget='many2many_tags'/>
+                        <field name="kpi_date"/>
+                        <field name="target_revenue"/>
+                        <field name="actual_revenue"/>
+                        <field name="conversion_rate" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
     </record>
 
-    <record id="sales_kpi_rule_user" model="ir.model.access">
-        <field name="name">sales.kpi access</field>
-        <field name="model_id" ref="model_sales_kpi"/>
-        <field name="group_id" ref="sales_kpi_group_user"/>
-        <field name="perm_read" eval="1"/>
-        <field name="perm_write" eval="1"/>
-        <field name="perm_create" eval="1"/>
-        <field name="perm_unlink" eval="1"/>
+    <!-- Sales KPI Tree View -->
+    <record id="view_sales_kpi_tree" model="ir.ui.view">
+        <field name="name">sales.kpi.tree</field>
+        <field name="model">sales.kpi</field>
+        <field name="arch" type="xml">
+            <tree string="Sales KPI">
+                <field name="name"/>
+                <field name="tag_ids"/>
+                <field name="kpi_date"/>
+                <field name="target_revenue"/>
+                <field name="actual_revenue"/>
+                <field name="conversion_rate"/>
+            </tree>
+        </field>
     </record>
 
-    <record id="sales_tag_group_user" model="res.groups">
-        <field name="name">Sales Tag User</field>
-        <field name="category_id" ref="base.module_category_sales_management"/>
+    <!-- Sales KPI Action -->
+    <record id="action_sales_kpi" model="ir.actions.act_window">
+        <field name="name">Sales KPI</field>
+        <field name="res_model">sales.kpi</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_sales_kpi_tree"/>
     </record>
 
-    <record id="sales_tag_rule_user" model="ir.model.access">
-        <field name="name">sales.tag access</field>
-        <field name="model_id" ref="model_sales_tag"/>
-        <field name="group_id" ref="sales_tag_group_user"/>
-        <field name="perm_read" eval="1"/>
-        <field name="perm_write" eval="1"/>
-        <field name="perm_create" eval="1"/>
-        <field name="perm_unlink" eval="1"/>
-    </record>
+    <!-- Sales KPI Menu Item -->
+    <menuitem id="menu_sales_kpi" name="Sales KPI" parent="base.menu_sales" action="action_sales_kpi"/>
 </odoo>
